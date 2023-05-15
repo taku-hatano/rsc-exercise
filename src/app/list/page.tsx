@@ -1,7 +1,7 @@
 import { PostList } from "@/components";
 import { Suspense } from "react";
 
-export default () => {
+const Home = () => {
 	return (
 		<main>
 			<div>
@@ -16,3 +16,5 @@ export default () => {
 		</main>
 	);
 };
+
+export default Home;

@@ -20,7 +20,7 @@ const getPosts = async (): Promise<Post[]> => {
 	return res.json();
 };
 
-export const PostList = async () => {
+export const PostListWithDetail = async () => {
 	const posts = await getPosts();
 	return (
 		<ul>
@@ -34,6 +34,12 @@ export const PostList = async () => {
 							<h3>
 								{post.id} {post.title}
 							</h3>
+							<ToggleButton>
+								<Suspense fallback={<div>Loading Detail...</div>}>
+									{/* @ts-expect-error Async Server Component */}
+									<PostDetail postId={post.id} />
+								</Suspense>
+							</ToggleButton>
 						</li>
 					);
 				})}
